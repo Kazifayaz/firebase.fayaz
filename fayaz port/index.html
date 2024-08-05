@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fayaz project</title>
+<link rel="icon" type="image" href="./7915382.png">
+</head>
+<body>
+    <link rel="stylesheet" href="./style.css">
+
+ <div id="preloader"></div>
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="#">FAYAZ<span>QAZI</span></a></div>
+            <ul class="menu">
+                <li><a href="#home" class="menu-btn">Home</a></li>
+                <li><a href="#about" class="menu-btn">About</a></li>
+                <li><a href="#services" class="menu-btn">Services</a></li>
+                <li><a href="#skills" class="menu-btn">Skills</a></li>
+                <li><a href="#teams" class="menu-btn">Teams</a></li>
+                <li><a href="#contact" class="menu-btn">Contact</a></li>
+            
+              
+            
+            </ul>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- home section start -->
+    <section class="home" id="home">
+        <div class="max-width">
+            <div class="home-content">
+                <div class="text-1">Hello, my name is FAYAZ ALI </div>
+                <div class="text-2">WEB DEVLOPER</div>
+                <div class="text-3">And I am a FRONT-END DEVLOPER<span class="typing"></span></div>
+                <div class="classbox">
+                <a href="./form.HTML">HIRE ME</a>
+            
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- about section start -->
+    <section class="about" id="about">
+        <div class="max-width">
+            <h2 class="title">About me</h2>
+            <div class="about-content">
+                <div class="column left">
+                    <img style="height: 649px;" src="./coding.jpg" alt="img">
+                </div>
+                <div class="column right">
+                    <div class="text">I am FAYAZ QAZI   and I'm a <span class="typing-2"></span>WEB DESIGNER</div>
+                    <p> And I am 17 years  young boy with  dynamic and enthusiastic person looking for the job Web Design and Development mostly specializing in front end development. A firm believer in my own abilities, I am also a
+                        team player who thrives in a challenging environment.I am a fresher with new and dynamics project ideas. Well-versed in numerous programming languages including HTML5,PHP,MySQL, JavaScript,Python and strong background in project management and customer relations.  </p>
+                    <a href="./FIAZ ALI QAZI.pdf" download="">CHECK CV</a>
+                </div>
+            </div>
+        </div>
+    
+    </section>
+
+
+    <script type="text/javascript">
+        var preogressbar = document .getElementById("preogressbar")
+        var percent = document .getElementById("percent")
+       
+        var totalHeight = document .body.scrollHeight - window.innerHeight;
+        window.onscroll = function(){
+            var progress =( window.pageYOffset / totalHeight) * 100;
+            preogressbar.style.height = progress + "%";
+            percent.innerHTML = "Page Scrolled " + Math.round(progress)+ "%"
+        }
+    </script>
+<!-- pre loader js  -->
+  <script>
+      var loader = document .getElementById("preloader");
+
+      window.addEventListener("load", function(){
+         loader.style.display = "none";
+      })
+  </script>
+  <script src="./script.js"></script>
+    
+</body>
+</html> 

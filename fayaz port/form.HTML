@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Styling</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+
+        h1, h2 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .form-box {
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .form-box h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-box input[type="text"],
+        .form-box input[type="password"],
+        .form-box input[type="email"],
+        .form-box input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-box button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .form-box button:hover {
+            background-color: #45a049;
+        }
+
+        .form-box .logout-btn {
+            background-color: #f44336;
+        }
+
+        .form-box .logout-btn:hover {
+            background-color: #e53935;
+        }
+
+        .welcome-box,
+        .center,
+        #model {
+            text-align: center;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #e0f7fa;
+        }
+
+        .welcome-box h1,
+        .center h2 {
+            margin: 0;
+            color: #00796b;
+        }
+
+        #model {
+            background-color: #a7ffeb;
+        }
+
+        #model form input {
+            margin-bottom: 10px;
+        }
+
+        #model button {
+            background-color: #00796b;
+        }
+
+        #model button:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="preloader"></div>
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="#">FAYAZ<span>QAZI.</span></a></div>
+            <ul class="menu">
+                <li><a href="C:\Users\MR COM\Desktop\fayaz port\index.html" class="menu-btn">Home</a></li>
+                <li><a href="#about" class="menu-btn">About</a></li>
+                <li><a href="#services" class="menu-btn">Services</a></li>
+                <li><a href="#skills" class="menu-btn">Skills</a></li>
+                <li><a href="#teams" class="menu-btn">Teams</a></li>
+                <li><a href="#contact" class="menu-btn">Contact</a></li>
+            </ul>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+<div class="refresh">
+
+    <div class="form-container">
+        <div class="form-box">
+            <h1>Signup Form</h1>
+            <form onsubmit="signup(event)">
+                <input type="text" placeholder="Enter your email" id="email" required>
+                <input type="password" placeholder="Enter your password" id="password" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="form-box">
+            <h1>Login</h1>
+            <form onsubmit="login(event)">
+                <input type="text" placeholder="Enter your email" id="login_email" required>
+                <input type="password" placeholder="Enter your password" id="login_password" required>
+                <button type="submit">Login</button>
+                <button type="button" class="logout-btn" onclick="logout()">Logout</button>
+            </form>
+        </div>
+    </div>
+
+   
+
+    <div class="center">
+        <img src="./retouch_2024061715403565.jpg" 
+        height="auto" id="propic" width="50%"  alt="no-img">
+         <input type="file" accept="image/*" onchange="uploadimg(event)">
+        <h2>Your Account Details</h2>
+        <div class="userdetails"></div>
+    </div>
+
+    <div id="model">
+        <h1>User Details</h1>
+        <form action="" id="editsprofile" onsubmit="userupdate(event)">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="profileEmail" placeholder="Email" required>
+            <input type="number" name="phone" placeholder="Phone" required>
+            <input type="text" name="specialty" placeholder="Specialty">
+            <input type="text" name="portfolioUrl" placeholder="Portfolio URL">
+            <input type="text" name="experience" placeholder="Experience">
+            <button type="submit">Add</button>
+        </form>
+    </div>
+</div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
+
+
+ <SCRipt>
+   const firebaseConfig = {
+    apiKey: "AIzaSyD2wYdJP2l97GdiAIpFwxrYjzf8Pxhh2bg",
+    authDomain: "final-project-764b3.firebaseapp.com",
+    projectId: "final-project-764b3",
+    storageBucket: "final-project-764b3.appspot.com",
+    messagingSenderId: "448088442016",
+    appId: "1:448088442016:web:6dfd312d33934f474535c5",
+    measurementId: "G-C9W295N2NX"
+  };
+  firebase.initializeApp(firebaseConfig);
+ </SCRipt>
+ <script src="app.js"></script>  
+  <script src="./store.js"></script>
+
+</head>
+</body>
